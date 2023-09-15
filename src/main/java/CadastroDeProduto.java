@@ -10,14 +10,17 @@ import java.math.BigDecimal;
 
 public class CadastroDeProduto {
     public static void main(String[] args) {
-        Produto celular = new Produto("Xiaomi", "Muito legal!", new BigDecimal("800"), Categoria.CELULARES);
+        Categoria celulares = new Categoria("celulares");
+        Produto celular = new Produto("Xiaomi", "Muito legal!", new BigDecimal("800"), celulares);
 
        EntityManager em = JPAUtil.getEntityManager();
 
-        ProdutoDAO dao = new ProdutoDAO(em);
+        ProdutoDAO produtoDAO = new ProdutoDAO(em);
+        CategoriaDAO categoriaDAO = new CategoriaDAO(em);
 
         em.getTransaction().begin();
-        em.persist(celular);
+        categoriaDAO.cadastrar(celulares);
+        produtoDAO.cadastrar(celular);
         em.getTransaction().commit();
         em.close();
     }
