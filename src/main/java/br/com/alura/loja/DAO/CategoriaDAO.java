@@ -1,3 +1,5 @@
+package br.com.alura.loja.DAO;
+
 import br.com.alura.loja.modelo.Categoria;
 import br.com.alura.loja.modelo.Produto;
 

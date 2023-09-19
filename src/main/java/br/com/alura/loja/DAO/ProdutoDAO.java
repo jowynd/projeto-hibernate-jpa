@@ -1,3 +1,5 @@
+package br.com.alura.loja.DAO;
+
 import br.com.alura.loja.modelo.Produto;
 import org.w3c.dom.stylesheets.LinkStyle;
 
